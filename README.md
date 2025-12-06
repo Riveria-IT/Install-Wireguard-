@@ -105,18 +105,12 @@ cd ~/wg-easy
 
 ---
 
-# 5. Passwort (SHA256-Hash) erstellen
+# 5. Passwort-Hash (bcrypt) für wg-easy erzeugen
 
-## 5.1 Passwort unsichtbar eingeben
-
-```bash
-read -s PASSWORD
-```
-
-## 5.2 SHA256 Hash erzeugen
+## 5.1 dein Passwort eingeben
 
 ```bash
-echo -n "$PASSWORD" | sha256sum | awk '{print $1}'
+docker run --rm -it ghcr.io/wg-easy/wg-easy wgpw 'DEIN-PASSWORT-HIER'
 ```
 
 Hash kopieren → kommt in die docker-compose.yml
